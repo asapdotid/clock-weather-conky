@@ -16,6 +16,7 @@ A stylish and informative Conky configuration that displays time, date, and live
 ## Installation
 
 1. **Requirements**
+
    - Linux system with Conky installed (`sudo apt install conky`)
    - Bash
    - curl
@@ -23,6 +24,7 @@ A stylish and informative Conky configuration that displays time, date, and live
    - Adele font
 
 2. **Clone the repository**
+
    ```bash
    git clone https://github.com/wim66/clock-weather-conky.git
    cd clock-weather-conky
@@ -32,17 +34,22 @@ A stylish and informative Conky configuration that displays time, date, and live
 
 4. **Configure your API key and city**
    There are two ways to provide your OpenWeatherMap API key and City ID:
+
    - **Recommended:** Create a `.env` file or add the following variables to your shell profile:
-     ```bash
+     `bash
      export OWM_API_KEY="your_openweathermap_apikey"
-     export CITY_ID="your_city_id"
-     ```
+     export OWM_CITY_ID="your_city_id"
+OWM_UNITS="${OWM_UNITS:-metric}" # "metric" # Default: metric (Celsius), can also be imperial (Fahrenheit)
+OWM_LANGUAGE="${OWM_LANG:-nl}" # "nl" # nl, en, fr, de, etc.
+     `
      This is the easiest approach, especially if you want to use multiple (different) weather widgets.
    - **Alternatively:** You can place your `OWM_API_KEY` and `CITY_ID` values directly at the top of the `weather.sh` script by replacing the variable assignments:
+
      ```bash
      API_KEY="your_openweathermap_apikey"
      CITY_ID="your_city_id"
      ```
+
      However, using environment variables is more flexible and recommended for switching between different widgets.
 
    - You can find your City ID here: https://openweathermap.org/find
@@ -50,11 +57,13 @@ A stylish and informative Conky configuration that displays time, date, and live
 5. **Optional:** Adjust icons and colors in `conky.conf` and the `icons/` folder.
 
 6. **Start the widget**
+
    ```bash
    ./start.sh
    ```
 
    This script:
+
    - Stops any running Conky processes
    - Fetches the latest weather data and prepares the icons
    - Starts Conky with the proper configuration

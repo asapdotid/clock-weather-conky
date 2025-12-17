@@ -11,8 +11,8 @@ Requirements:
     - curl: for making HTTP requests
     - md5sum: for generating configuration hash
     - OpenWeatherMap API key set in environment variable OWM_API_KEY or replace with your own key
-    - City ID set in environment variable CITY_ID or replace with your own city ID    
-    - Icons stored in a directory named 'icons' relative to this script
+    - City ID set in environment variable CITY_ID or replace with your own city ID
+    - Icons stored in a directory named "icons" relative to this script
 
     By @wim66
     29-06-2025
@@ -20,9 +20,9 @@ Requirements:
 
 # Configuration
 API_KEY="$OWM_API_KEY" # OpenWeatherMap API key, set this in your environment or replace with your key
-CITY_ID="$CITY_ID" # City ID, can be replaced with your own city ID
-UNITS="metric" # Default: metric (Celsius), can also be imperial (Fahrenheit)
-LANG="nl" # nl, en, fr, de, etc.
+CITY_ID="$OWM_CITY_ID" # City ID, can be replaced with your own city ID
+UNITS="${OWM_UNITS:-metric}" # "metric" # Default: metric (Celsius), can also be imperial (Fahrenheit)
+LANG="${OWM_LANGUAGE:-nl}" # "nl" # nl, en, fr, de, etc.
 CACHE_FILE="/tmp/weather.cache"
 CONFIG_HASH_FILE="/tmp/weather.config.hash"
 CACHE_TTL=900 # 15 minutes
@@ -31,8 +31,8 @@ TEMP_ICON="/tmp/weather_icon.png" # Temporary icon file
 
 # Custom weather description mappings (API description -> custom description)
 declare -A DESC_MAP=(
-    ["zeer lichte bewolking"]="lichte bewolking"
-    ["heavy intensity rain"]="Bring umbrella"
+    ["very light cloud cover"]="light cloudiness"
+    ["heavy intensity rain"]="bring umbrella"
 )
 
 # Function to generate configuration hash
