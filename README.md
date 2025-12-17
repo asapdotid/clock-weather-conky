@@ -36,13 +36,16 @@ A stylish and informative Conky configuration that displays time, date, and live
    There are two ways to provide your OpenWeatherMap API key and City ID:
 
    - **Recommended:** Create a `.env` file or add the following variables to your shell profile:
-     `bash
-     export OWM_API_KEY="your_openweathermap_apikey"
-     export OWM_CITY_ID="your_city_id"
-OWM_UNITS="${OWM_UNITS:-metric}" # "metric" # Default: metric (Celsius), can also be imperial (Fahrenheit)
-OWM_LANGUAGE="${OWM_LANG:-nl}" # "nl" # nl, en, fr, de, etc.
-     `
+
+     ```bash
+     	export OWM_API_KEY="your_openweathermap_apikey"
+     	export OWM_CITY_ID="your_city_id"
+     	export OWM_UNITS="imperial" # "metric" # Default: metric (Celsius), can also be imperial (Fahrenheit)
+     	export OWM_LANGUAGE="en" # "nl" # nl, en, fr, de, etc.
+     ```
+
      This is the easiest approach, especially if you want to use multiple (different) weather widgets.
+
    - **Alternatively:** You can place your `OWM_API_KEY` and `CITY_ID` values directly at the top of the `weather.sh` script by replacing the variable assignments:
 
      ```bash
